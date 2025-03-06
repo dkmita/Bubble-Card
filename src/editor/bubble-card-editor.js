@@ -390,6 +390,19 @@ class BubbleCardEditor extends LitElement {
                 </ha-formfield>
             ` : ''}
             ${array !== 'sub_button' && this._button_type === 'slider' ? html`
+                <ha-formfield .label="Optional - Slider won't hit zero">
+                    <ha-switch
+                        aria-label="Optional - Slider won't hit zero"
+                        .checked=${this._config.slider_no_zero ?? false}
+                        .configValue="${"slider_no_zero"}"
+                        @change=${this._valueChanged}
+                    ></ha-switch>
+                    <div class="mdc-form-field">
+                        <label class="mdc-label">Optional - Slider won't hit zero</label> 
+                    </div>
+                </ha-formfield>
+            ` : ''}
+            ${array !== 'sub_button' && this._button_type === 'slider' ? html`
                 <ha-formfield .label="Optional - Slider live update">
                     <ha-switch
                         aria-label="Optional - Slider live update"
