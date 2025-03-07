@@ -79,7 +79,7 @@ export function updateEntity(context, value) {
 export function onSliderChange(context, leftDistance) {
   const rect = context.elements.rangeSlider.getBoundingClientRect();
   const percentage = 100 * (leftDistance - rect.left) / rect.width;
-  const minimum = context.attributes.slide_off ? 0 : 1;
+  const minimum = (context.config.slider_no_zero ?? true) ? 1 : 0;
   const rangedPercentage = Math.min(100, Math.max(minimum, percentage));
 
   context.elements.rangeFill.style.transform = `translateX(${rangedPercentage}%)`;
